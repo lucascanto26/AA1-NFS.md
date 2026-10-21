@@ -11,3 +11,8 @@ Creació del client:
 Configuració xarxa client: 
 
 ![Configuracó xarxa](/img/Captura%20de%20pantalla%202026-10-21%20184337.png)
+
+
+Configuracío servidor:
+
+![Config servidor](/img/Captura%20de%20pantalla%202026-10-21%20185414.png)
