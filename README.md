@@ -7,3 +7,7 @@ Per fer l'activitat, utilitzarem dues màquines virtuals: Ubuntu Server 24.04 LT
 
 Creació del client:
 ![Creació del client](/img/Captura%20de%20pantalla%202026-10-21%20183936.png)
+
+Configuració xarxa client: 
+
+![Configuracó xarxa](/img/Captura%20de%20pantalla%202026-10-21%20184337.png)
