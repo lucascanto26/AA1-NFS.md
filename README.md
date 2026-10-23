@@ -21,3 +21,6 @@ Configuració servidor:
 Fase 2: Preparació del servidor
 
 Al servidor, crearem els grups devs i admins, i els usuaris dev01 i admin01, cadascun al seu grup. Després, crearem els directoris /srv/nfs/dev_projects i /srv/nfs/admin_tools, amb root com a propietari i permisos perquè cada grup controli el seu directori. Finalment, instal·larem i configurarem el servei NFS per compartir-los amb el client, on també replicarem els usuaris i grups amb els mateixos UID i GID.
+
+Creació dels grups:
+![grups](/img/Captura%20de%20pantalla%202026-10-23%20184618.png)
