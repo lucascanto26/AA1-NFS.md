@@ -86,3 +86,22 @@ Aquesta vegada el fitxer prova2.txt té propietari root. Sí que ha canviat: a l
 
 Explicació tècnica: amb no_root_squash el servidor deixa de transformar l'UID 0 del client i el tracta com a root real, així que el fitxer es crea amb propietari root. 
 
+Fase 4: L'Exportació de Desenvolupament (Permisos rw vs ro)
+
+Editar /etc/exports per afegir dues exportacions per al mateix directori. El client vol que la xarxa d'administració (p.ex., 192.168.56.0/24) hi pugui escriure, però que la xarxa de consultors (simularem que és una altra IP, p.ex., 192.168.56.100) només pugui llegir.
+
+![exportació](/img/Captura%20de%20pantalla%202026-10-23%20200821.png)
+
+Des del client, muntar el recurs compartit a /mnt/dev_projects i provar d'escriure-hi com a usuari dev01. Hauria de funcionar.
+
+![muntar el recurs](/img/Captura%20de%20pantalla%202026-10-23%20201003.png)
+
+Desmuntar el recurs i canviar manualment la IP del client a 192.168.56.100. Tornar a provar d'escriure al directori muntat com a usuari dev01 i comprovar que només funciona la lectura.
+
+![show enp0s8](/img/Captura%20de%20pantalla%202026-10-23%20201128.png)
+
+![tornar a montar i escirure](/img/Captura%20de%20pantalla%202026-10-23%20201404.png)
+
+Canvieu d'usuari al client a admin01 i torneu a provar d'escriure al directori muntat. Comproveu que no es pot escriure, ja que admin01 no és membre del grup devs (permisos locals del sistema de fitxers).
+
+![canvi usuari](/img/Captura%20de%20pantalla%202026-10-23%20201842.png)
