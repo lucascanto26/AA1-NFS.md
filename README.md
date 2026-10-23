@@ -49,12 +49,12 @@ Prova 1:
 Exportar el directori /srv/nfs/admin_tools amb les opcions 'rw,sync':
 ![exportació del directori](/img/Captura%20de%20pantalla%202026-10-23%20195444.png)
 
-Al client, desmuntar i tornar a muntar el recurs compartit:
+Des del client, muntar aquest recurs compartit a /mnt/admin_tools. Com a root del client, intentar crear un fitxer dins d'aquest directori muntat:
 
 ![pas 2](/img/Captura%20de%20pantalla%202026-10-23%20195557.png)
 
 
-Com a root del client, intentar crear un fitxer dins d'aquest directori muntat. Observeu quin és el propietari del fitxer creat aquesta vegada. Ha canviat alguna cosa? Justificar la resposta amb l'explicació tècnica de 'no_root_squash'.
+Verificar quin és el propietari del fitxer creat. Per què? Justificar la resposta amb l'explicació tècnica de 'root_squash'.
 
 ![pas3](/img/Captura%20de%20pantalla%202026-10-23%20195642.png)
 
@@ -67,3 +67,22 @@ Per què? Amb l'exportació rw,sync s'aplica per defecte root_squash.
 
 
 Prova 2:
+
+Modificar l'exportació del directori /srv/nfs/admin_tools per incloure l'opció 'no_root_squash'.
+
+![pas1 prova2](/img/Captura%20de%20pantalla%202026-10-23%20200127.png)
+
+Al client, desmuntar i tornar a muntar el recurs compartit.
+
+![pas 2 prova2](/img/Captura%20de%20pantalla%202026-10-23%20200339.png)
+
+Com a root del client, intentar crear un fitxer dins d'aquest directori muntat. Observeu quin és el propietari del fitxer creat aquesta vegada. Ha canviat alguna cosa? Justificar la resposta amb l'explicació tècnica de 'no_root_squash'.
+
+![pas 3 prova2](/img/Captura%20de%20pantalla%202026-10-23%20200523.png)
+
+
+
+Aquesta vegada el fitxer prova2.txt té propietari root. Sí que ha canviat: a la Prova 1 era nobody.
+
+Explicació tècnica: amb no_root_squash el servidor deixa de transformar l'UID 0 del client i el tracta com a root real, així que el fitxer es crea amb propietari root. 
+
