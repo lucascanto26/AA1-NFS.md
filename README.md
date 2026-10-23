@@ -38,3 +38,13 @@ Instal·lació de paquets NFS:
 
 Fem un "sudo apt update" 
 ![instal·lació de paquets](/img/Captura%20de%20pantalla%202026-10-23%20191626.png)
+
+
+Fase 3: L'Exportació d'Administració (El Dilema del root_squash)
+
+El client necessita que el directori /srv/nfs/admin_tools sigui accessible per l'equip d'administradors. A vegades, l'usuari root del client (que sou vosaltres, els consultors) necessitarà escriure en aquest directori per instal·lar eines. Aquí mostrarem un error típic i la seva solució.
+
+Prova 1:
+
+Exportar el directori /srv/nfs/admin_tools amb les opcions 'rw,sync':
+![exportació del directori](/img/Captura%20de%20pantalla%202026-10-23%20193148.png)
