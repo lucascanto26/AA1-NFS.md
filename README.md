@@ -30,3 +30,6 @@ Creació usuari dev01:
 
 Creació de directoris:
 ![creació de directoris](/img/Captura%20de%20pantalla%202026-10-23%20185942.png)
+
+Permisos del servidor:
+![permisos](/img/Captura%20de%20pantalla%202026-10-23%20190202.png)
