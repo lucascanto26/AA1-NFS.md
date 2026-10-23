@@ -33,3 +33,8 @@ Creació de directoris:
 
 Permisos del servidor:
 ![permisos](/img/Captura%20de%20pantalla%202026-10-23%20190202.png)
+
+Instal·lació de paquets NFS:
+
+Fem un "sudo apt update" 
+![instal·lació de paquets](/img/Captura%20de%20pantalla%202026-10-23%20191626.png)
