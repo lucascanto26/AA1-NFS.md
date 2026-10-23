@@ -27,3 +27,6 @@ Creació dels grups:
 
 Creació usuari dev01:
 ![creació d'usuaris](/img/Captura%20de%20pantalla%202026-10-23%20185409.png)
+
+Creació de directoris:
+![creació de directoris](/img/Captura%20de%20pantalla%202026-10-23%20185942.png)
