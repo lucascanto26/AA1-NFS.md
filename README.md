@@ -47,4 +47,23 @@ El client necessita que el directori /srv/nfs/admin_tools sigui accessible per l
 Prova 1:
 
 Exportar el directori /srv/nfs/admin_tools amb les opcions 'rw,sync':
-![exportació del directori](/img/Captura%20de%20pantalla%202026-10-23%20193148.png)
+![exportació del directori](/img/Captura%20de%20pantalla%202026-10-23%20195444.png)
+
+Al client, desmuntar i tornar a muntar el recurs compartit:
+
+![pas 2](/img/Captura%20de%20pantalla%202026-10-23%20195557.png)
+
+
+Com a root del client, intentar crear un fitxer dins d'aquest directori muntat. Observeu quin és el propietari del fitxer creat aquesta vegada. Ha canviat alguna cosa? Justificar la resposta amb l'explicació tècnica de 'no_root_squash'.
+
+![pas3](/img/Captura%20de%20pantalla%202026-10-23%20195642.png)
+
+
+El fitxer prova1.txt creat com a root del client apareix amb propietari nobody, no root.
+
+Per què? Amb l'exportació rw,sync s'aplica per defecte root_squash. 
+
+
+
+
+Prova 2:
