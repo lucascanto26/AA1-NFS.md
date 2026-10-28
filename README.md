@@ -105,3 +105,46 @@ Desmuntar el recurs i canviar manualment la IP del client a 192.168.56.100. Torn
 Canvieu d'usuari al client a admin01 i torneu a provar d'escriure al directori muntat. Comproveu que no es pot escriure, ja que admin01 no és membre del grup devs (permisos locals del sistema de fitxers).
 
 ![canvi usuari](/img/Captura%20de%20pantalla%202026-10-23%20201842.png)
+
+__Fase 4: L'Exportació de Desenvolupament (Permisos rw vs ro)__
+
+Editar /etc/exports per afegir dues exportacions per al mateix directori. El client vol que la xarxa d'administració (p.ex., 192.168.56.0/24) hi pugui escriure, però que la xarxa de consultors (simularem que és una altra IP, p.ex., 192.168.56.100) només pugui llegir.
+
+![les exportacions](/img/Captura%20de%20pantalla%202026-10-28%20172652.png)
+
+![regles de dev_projects](/img/Captura%20de%20pantalla%202026-10-28%20173008.png)
+
+Des del client, muntar el recurs compartit a /mnt/dev_projects i provar d'escriure-hi com a usuari dev01. Hauria de funcionar.
+
+![comanda mount | grep](/img/Captura%20de%20pantalla%202026-10-28%20173217.png)
+
+![comprovació permisos](/img/Captura%20de%20pantalla%202026-10-28%20173753.png)
+
+Desmuntar el recurs i canviar manualment la IP del client a 192.168.56.100. 
+
+![CANVI IP A MÀ](/img/Captura%20de%20pantalla%202026-10-28%20174035.png)
+
+
+Tornar a provar d'escriure al directori muntat com a usuari dev01 i comprovar que només funciona la lectura.
+
+![tornar a montar amb ip .100](/img/Captura%20de%20pantalla%202026-10-28%20180939.png)
+
+Canvieu d'usuari al client a admin01 i torneu a provar d'escriure al directori muntat. Comproveu que no es pot escriure, ja que admin01 no és membre del grup devs (permisos locals del sistema de fitxers).
+
+
+![montar i prueba con admin01](/img/Captura%20de%20pantalla%202026-10-28%20181056.png)
+
+
+__Fase 5: Muntatge Automàtic amb /etc/fstab__
+
+Editar el fitxer /etc/fstab al client per afegir les entrades necessàries per muntar automàticament els recursos compartits NFS al directori /mnt/admin_tools i /mnt/dev_projects durant l'inici del sistema.
+
+![dos linies noves](/img/Captura%20de%20pantalla%202026-10-28%20181418.png)
+
+Executar la comanda mount -a per provar les entrades sense reiniciar.
+
+![prova de mount -a](/img/Captura%20de%20pantalla%202026-10-28%20181605.png)
+
+Reiniciar el client i verificar que els recursos compartits s'han muntat correctament.
+
+![reboot + muntar](/img/Captura%20de%20pantalla%202026-10-28%20181847.png)
